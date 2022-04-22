@@ -1,0 +1,17 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "270"
+  name: resources
+  labels:
+    intent: resources
+spec:
+  storageClassName: "ibmc-file-gold"
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadOnlyMany
+  nfs:
+    server: fsf-syd0401g-fz.adn.networklayer.com
+    path: /IBM02SEV2112072_79742/data01/resources
