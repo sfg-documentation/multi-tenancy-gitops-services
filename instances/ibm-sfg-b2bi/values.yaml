@@ -8,7 +8,7 @@ ibm-sfg-prod:
     image:
       repository: cp.icr.io/cp/ibm-sfg/sfg
     # Provide the tag value in double quotes
-      tag: 6.1.0.2
+      tag: 6.1.0.0 
       pullPolicy: IfNotPresent
       pullSecret: ibm-entitlement-key  
   serviceAccount:
@@ -45,7 +45,7 @@ ibm-sfg-prod:
     fsGroup: 1010
     runAsUser: 1010
   dataSetup:
-    enabled: false
+    enabled: true
     upgrade: false
   env:
     tz: "UTC"
@@ -69,11 +69,11 @@ ibm-sfg-prod:
     nistComplianceMode: "off"
     # Provide the DB attributes
     dbVendor: db2
-    dbHost: 130.198.97.220
-    dbPort: 50000
+    dbHost: 
+    dbPort: 
     dbData: B2BIDB
     dbDrivers: db2jcc4.jar
-    dbCreateSchema: false
+    dbCreateSchema: true
     # Name of DB secret
     dbSecret: b2b-db-secret
     #Provide the admin email address
@@ -89,9 +89,9 @@ ibm-sfg-prod:
     jmsConnectionFactory: com.ibm.mq.jms.MQQueueConnectionFactory
     jmsConnectionFactoryInstantiator:
     jmsQueueName: DEV.QUEUE.1
-    jmsHost: 172.21.168.234
-    jmsPort: 1414
-    jmsConnectionNameList: 172.21.168.234(1414)
+    jmsHost: 
+    jmsPort: 
+    jmsConnectionNameList: ()
     jmsEnableSsl: false
     jmsChannel: DEV.APP.SVRCONN
     # Name of JMS secret if available
@@ -151,7 +151,7 @@ ibm-sfg-prod:
           protocol: TCP
     ingress:
       internal:
-        host: asi.itzroks-662001rtxj-jh7dsf-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud
+        host: asi.itzroks-120000e5ra-wn8uqb-4b4a324f027aea19c5cbc0c3275c4656-0000.sjc03.containers.appdomain.cloud
         tls:
           enabled: true
           secretName: ""
@@ -193,7 +193,7 @@ ibm-sfg-prod:
         #  protocol: TCP
     ingress:
       internal:
-        host: ac.itzroks-662001rtxj-jh7dsf-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud
+        host: ac.itzroks-120000e5ra-wn8uqb-4b4a324f027aea19c5cbc0c3275c4656-0000.sjc03.containers.appdomain.cloud
         tls:
           enabled: true
           secretName: ""
@@ -203,11 +203,6 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   api:
-    # autoscaling:
-    #   enabled: false
-    #   minReplicas: 2
-    #   maxReplicas: 4
-    #   targetCPUUtilizationPercentage: 60
     replicaCount: 1
     frontendService:
       type: ClusterIP
@@ -232,7 +227,7 @@ ibm-sfg-prod:
         # protocol: TCP
     ingress:
       internal:
-        host: api.itzroks-662001rtxj-jh7dsf-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud
+        host: api.itzroks-120000e5ra-wn8uqb-4b4a324f027aea19c5cbc0c3275c4656-0000.sjc03.containers.appdomain.cloud
         tls:
           enabled: true
           secretName: ""
